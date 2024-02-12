@@ -1,0 +1,10 @@
+.img,
+.text{
+    display: none;
+}
+
+form{
+    width: 800px;
+    margin: auto;
+}
+
