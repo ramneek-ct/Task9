@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
     $('select').change(function() {
+        //alert($(this).children(':selected').val());
         if(this.value == "1"){
             $(".img").show();
             $(".text").hide();

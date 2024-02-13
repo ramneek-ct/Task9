@@ -25,15 +25,15 @@
     <form action="" method="post" enctype="multipart/form-data"><br>
 
         <label for="logo">Choose the format for logo: </label>
-        <select name="logo" id="logo">
+        <select name="logo" id="logo"  >
             <option value="0">Choose format</option>
-            <option value="1">Image</option>
-            <option value="2">Text</option>
+            <option value="1" <?php if ($row['logo_text']==''){ echo "selected = 'selected'"; } ?>>Image </option>
+            <option value="2" <?php if ($row['logo_image'] ==''){ echo "selected = 'selected'"; } ?> >Text</option>
         </select><br><br>
 
         <div class = "img">
         <label for="logo_img">Upload Logo Image: </label>
-        <input type="file" id="logo_img" name="logo_img">
+        <input type="file" id="logo_img" name="logo_img" accept="image/*">
         <label for="logo_img_name" class="logo_img_name"> <?php echo $row['logo_image']; ?></label><br><br> 
         </div>
 
@@ -54,7 +54,7 @@
         <input type="textfield" id="menu_item5" name="menu_item5" value= "<?php echo $row['menu_item_5']; ?>"><br><br>
 
         <label for="bg_img">Upload background image: </label>
-        <input type="file" id="bg_img" name="bg_img">
+        <input type="file" id="bg_img" name="bg_img" accept="image/*">
         <label for="bg_img_name" class="bg_img_name"><?php echo $row['bg_image']; ?></label><br><br>
 
         <label for="highlight_heading">Enter highlighted heading: </label>
