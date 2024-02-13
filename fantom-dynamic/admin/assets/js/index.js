@@ -55,6 +55,7 @@ $(document).ready(function(){
             success: function(response){
                 logo_img_name.text(response.logo_img_name);
                 bg_img_name.text(response.bg_img_name);
+                alert(response.alert);
             }
         });
     });
