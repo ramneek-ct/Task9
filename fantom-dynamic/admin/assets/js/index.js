@@ -15,6 +15,7 @@ $(document).ready(function(){
     
     $(".submit_button").click(function(){
         var logo_image = $("#logo_img")[0].files[0];
+        var logo_img_name = $(".logo_img_name").val();
         var logo_text = $("#logo_text").val();
         var item1 = $("#menu_item1").val();
         var item2 = $("#menu_item2").val();
@@ -22,6 +23,7 @@ $(document).ready(function(){
         var item4 = $("#menu_item4").val();
         var item5 = $("#menu_item5").val();
         var bg_img = $("#bg_img")[0].files[0];
+        var bg_img_name = $(".bg_img_name").val();
         var h_heading = $("#highlight_heading").val();
         var heading = $("#banner_heading").val();
         var paragraph = $("#banner_pg").val();
@@ -29,6 +31,7 @@ $(document).ready(function(){
 
         var input_data = new FormData();
         input_data.append("logo_image",logo_image);
+        input_data.append("logo_img_name", logo_img_name);
         input_data.append("logo_text",logo_text);
         input_data.append("item1",item1);
         input_data.append("item2",item2);
@@ -36,6 +39,7 @@ $(document).ready(function(){
         input_data.append("item4",item4);
         input_data.append("item5",item5);
         input_data.append("bg_img",bg_img);
+        input_data.append("bg_img_name",bg_img_name);
         input_data.append("h_heading",h_heading);
         input_data.append("heading",heading);
         input_data.append("paragraph",paragraph);
@@ -48,7 +52,8 @@ $(document).ready(function(){
             processData: false,
             contentType: false,
             success: function(response){
-                alert(response);
+                logo_img_name.text(response.logo_img_name);
+                bg_img_name.text(response.bg_img_name);
             }
         });
     });
@@ -71,7 +76,7 @@ $(document).ready(function(){
             success: function(response){
             
                 if(response == 1){
-                    window.location.href = 'index.php';
+                    window.location.href = 'form.php';
                 }
                 else {
                     alert ("User not verified!");
@@ -112,7 +117,7 @@ $(document).ready(function(){
             success: function (response){
                 if(response == "logout"){
                     alert ("Logging out");
-                    window.location.href = 'user.php';
+                    window.location.href = 'index.php';
                 }
                 else {
                     alert ("Try again");

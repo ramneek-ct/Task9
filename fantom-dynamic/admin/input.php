@@ -3,11 +3,13 @@
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $logo_text = $_POST['logo_text'];
+        $logo_img_name = $_POST['logo_img_name'];
         $item1 = $_POST['item1'];
         $item2 = $_POST['item2'];
         $item3 = $_POST['item3'];
         $item4 = $_POST['item4'];
         $item5 = $_POST['item5'];
+        $bg_img_name = $_POST['bg_img_name'];
         $h_heading = $_POST['h_heading'];
         $heading = $_POST['heading'];
         $paragraph = $_POST['paragraph'];
@@ -57,6 +59,9 @@
             }
         }
        
-        
+        $output =['logo_img_name' => $logo_img_name,
+        'bg_img_name' => $bg_img_name];
+        header('Content-Type: application/json');
+        echo json_encode($output);
     }
 ?>
